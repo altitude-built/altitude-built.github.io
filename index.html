@@ -55,6 +55,23 @@
             height: auto;
             margin-bottom: 2.5rem;
             filter: drop-shadow(0 10px 20px rgba(0,0,0,0.4));
+            animation: pulseLogo 2s ease-in-out 4; /* Runder Puls-Effekt, exakt 4 Wiederholungen */
+        }
+
+        /* Die Puls-Animation für das Logo (Breathing Effect) */
+        @keyframes pulseLogo {
+            0% { 
+                transform: scale(1); 
+                filter: drop-shadow(0 10px 20px rgba(0,0,0,0.4)); 
+            }
+            50% { 
+                transform: scale(1.04); /* Sanftes Vergrößern */
+                filter: drop-shadow(0 15px 30px rgba(201, 209, 217, 0.15)); /* Leichtes Leuchten im Hintergrund */
+            }
+            100% { 
+                transform: scale(1); 
+                filter: drop-shadow(0 10px 20px rgba(0,0,0,0.4)); 
+            }
         }
 
         /* Minimalistischer Text mit viel Laufweite (Letter-Spacing) */
@@ -116,7 +133,7 @@
 <body>
 
     <div class="main-container">
-        <!-- Wir nutzen hier die transparente Wortmarke -->
+        <!-- HIER IST DIE ÄNDERUNG: Wir nutzen jetzt die "dunkel" Version des Logos -->
         <img src="Altitude-Built_Wortmarke_dunkel.png" alt="Altitude Built" class="logo">
         <div class="coming-soon">Coming Soon</div>
         <div class="subtitle">NEW ANDROID EXPERIENCES</div>
