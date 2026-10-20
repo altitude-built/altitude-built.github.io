@@ -4,17 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Altitude Built</title>
-<meta name="description" content="Altitude Built entwickelt klare, schöne Android-Apps in Tirol. Deine Daten bleiben auf deinem Gerät.">
+<meta name="description" content="Altitude Built entwickelt klare, schöne Android-Apps in Tirol. Ohne Konto, mit möglichst wenig Berechtigungen.">
 <meta name="theme-color" content="#0E1520">
 <meta property="og:title" content="Altitude Built">
 <meta property="og:description" content="Klare Apps für Android. Gebaut in Tirol.">
 <meta property="og:image" content="https://altitude-built.github.io/og-image.jpg">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/png" href="Altitude-Built_Zeichen_512.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&family=Michroma&display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/hanken-grotesk-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+/* Schriften lokal eingebunden (SIL Open Font License 1.1, siehe fonts/), keine Verbindung zu Google */
+@font-face{font-family:"Michroma";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/michroma-latin-400-normal.woff2") format("woff2")}
+@font-face{font-family:"Hanken Grotesk";font-style:normal;font-weight:300;font-display:swap;src:url("fonts/hanken-grotesk-latin-300-normal.woff2") format("woff2")}
+@font-face{font-family:"Hanken Grotesk";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/hanken-grotesk-latin-400-normal.woff2") format("woff2")}
+@font-face{font-family:"Hanken Grotesk";font-style:normal;font-weight:500;font-display:swap;src:url("fonts/hanken-grotesk-latin-500-normal.woff2") format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/ibm-plex-mono-latin-400-normal.woff2") format("woff2")}
 /* Layout: eine lebende Höhenlinienkarte als fixe Bühne hinter allem; zentrierter Marken-Moment oben, darunter ruhige, linksbündige Abschnitte auf abgedunkeltem Gelände. */
 :root{
   --night:#0E1520;      /* Grund, tiefer als das Marken-Navy */
@@ -62,7 +66,7 @@ body.scrolled .status{background:none;border-color:transparent}
 .brand-mini span{font-family:var(--f-display);font-size:.62rem;letter-spacing:.3em}
 body.scrolled .brand-mini{opacity:1}
 .status{display:flex;align-items:center;gap:.6rem;padding:.45rem .85rem;border:1px solid var(--line);border-radius:99px;background:rgba(14,21,32,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
-.status i{width:6px;height:6px;border-radius:50%;background:var(--ember);box-shadow:0 0 0 0 rgba(233,164,106,.6);animation:pulse 2.4s infinite}
+.status i{width:6px;height:6px;border-radius:50%;background:var(--ember);box-shadow:0 0 0 0 rgba(233,164,106,.6);animation:pulse 3.6s infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(233,164,106,.55)}70%{box-shadow:0 0 0 9px rgba(233,164,106,0)}100%{box-shadow:0 0 0 0 rgba(233,164,106,0)}}
 
 /* ---------- Hero ---------- */
@@ -103,7 +107,7 @@ body.scrolled .brand-mini{opacity:1}
 .hud .right{text-align:right}
 .hint{display:flex;flex-direction:column;align-items:center;gap:.8rem;text-align:center}
 .hint .line{width:1px;height:42px;background:linear-gradient(var(--mist),transparent);position:relative;overflow:hidden}
-.hint .line::after{content:"";position:absolute;left:0;top:-40%;width:1px;height:40%;background:var(--ember);animation:drop 2.2s ease-in-out infinite}
+.hint .line::after{content:"";position:absolute;left:0;top:-40%;width:1px;height:40%;background:var(--ember);animation:drop 3.2s ease-in-out infinite}
 @keyframes drop{to{top:110%}}
 
 /* Höhenmesser am Cursor */
@@ -175,7 +179,7 @@ footer nav a:hover{color:var(--snow)}
     <svg viewBox="84 110 348 306" aria-hidden="true"><path fill="#F4ECDF" d="M251,118 L116,338 L92,382 L160,350 L184,336 L250,225 L325,352 L270,356 L425,409Z"/></svg>
     <span>Altitude Built</span>
   </a>
-  <div class="status"><i></i>Erste Apps im Test<b>&nbsp;· bald im Play Store</b></div>
+  <div class="status"><i></i>Erste Apps im Test</div>
 </header>
 
 <div class="pin" id="pin">2.400 m</div>
@@ -206,14 +210,14 @@ footer nav a:hover{color:var(--snow)}
       </div>
       <div>
         <p>Altitude Built baut Android-Apps, die ein echtes Alltagsproblem lösen und dabei richtig gut aussehen.</p>
-        <p>Keine überladenen Menüs, keine Datensammelei. Jede App wird so lange verfeinert, bis sie sich selbstverständlich anfühlt.</p>
+        <p>Keine überladenen Menüs, keine unnötigen Funktionen. Jede App wird so lange verfeinert, bis sie sich selbstverständlich anfühlt.</p>
       </div>
     </section>
 
     <section class="wrap principles" aria-label="Grundsätze">
       <article class="pr">
         <h3>Bleibt bei dir</h3>
-        <p>Alles wird lokal auf deinem Gerät gespeichert. Keine Cloud, kein fremder Server dazwischen.</p>
+        <p>Deine Einstellungen und Inhalte werden auf deinem Gerät gespeichert. Altitude Built betreibt keine Cloud, in der sie landen.</p>
       </article>
       <article class="pr">
         <h3>Kein Konto</h3>
@@ -221,7 +225,7 @@ footer nav a:hover{color:var(--snow)}
       </article>
       <article class="pr">
         <h3>Nur das Nötige</h3>
-        <p>Minimale Berechtigungen. Was eine App nicht wirklich braucht, fragt sie auch nicht an.</p>
+        <p>Eine App fragt nur nach den Berechtigungen, die sie für ihre Funktionen braucht.</p>
       </article>
     </section>
 
@@ -229,7 +233,7 @@ footer nav a:hover{color:var(--snow)}
       <div>
         <div class="eyebrow">Kontakt</div>
         <h2>Die ersten Apps sind gerade im Test.</h2>
-        <p>Bald im Google Play Store. Fragen, Ideen oder Feedback? Schreib einfach.</p>
+        <p>Fragen, Ideen oder Feedback? Schreib einfach.</p>
       </div>
       <div class="mail">
         <a href="mailto:altitude.built@gmail.com" id="mail">altitude.built@gmail.com</a>
@@ -254,7 +258,7 @@ footer nav a:hover{color:var(--snow)}
 
 <script>
 (()=>{
-/* ---------- Simplex 3D (Gustavson, gemeinfrei) ---------- */
+/* ---------- Simplex-Noise 3D, nach Stefan Gustavsons gemeinfreier Referenz ---------- */
 const G=[1,1,0,-1,1,0,1,-1,0,-1,-1,0,1,0,1,-1,0,1,1,0,-1,-1,0,-1,0,1,1,0,-1,1,0,1,-1,0,-1,-1];
 const P=new Uint8Array(512);{const p=new Uint8Array(256);for(let i=0;i<256;i++)p[i]=i;let s=1847;
 for(let i=255;i>0;i--){s=(s*16807)%2147483647;const j=s%(i+1);[p[i],p[j]]=[p[j],p[i]];}for(let i=0;i<512;i++)P[i]=p[i&255];}
@@ -306,18 +310,18 @@ function edge(e,x0,y0,a,b,c,d,L,o){
   }
 }
 const pA=[0,0],pB=[0,0];
-let lastDraw=0;
+let lastDraw=0,lastHud=0;
 function frame(now){
   if(!reduce&&W<700&&now-lastDraw<30){requestAnimationFrame(frame);return}
   lastDraw=now;const w0=performance.now();
   const dt=Math.min(.05,(now-prev)/1000);prev=now;
   const el=(now-t0)/1000;
-  const t=reduce?3:el*.022;
-  const rise=reduce?1:1-Math.pow(1-Math.min(1,el/2.8),3);
+  const t=reduce?3:el*.011;
+  const rise=reduce?1:1-Math.pow(1-Math.min(1,el/3.4),3);
   // Gipfel: folgt dem Zeiger, sonst wandert er von selbst
-  if(now-lastMove>5000||!user){const a=el*.09;tx=W*(.5+.34*Math.sin(a*1.3+.6));ty=H*(.48+.3*Math.sin(a*1.9+1.2));}
-  const k=reduce?1:1-Math.exp(-dt*3.2);sx+=(tx-sx)*k;sy+=(ty-sy)*k;
-  amp+=(1.05-amp)*(reduce?1:1-Math.exp(-dt*1.2));
+  if(now-lastMove>5000||!user){const a=el*.045;tx=W*(.5+.34*Math.sin(a*1.3+.6));ty=H*(.48+.3*Math.sin(a*1.9+1.2));}
+  const k=reduce?1:1-Math.exp(-dt*1.5);sx+=(tx-sx)*k;sy+=(ty-sy)*k;
+  amp+=(1.05-amp)*(reduce?1:1-Math.exp(-dt*.8));
 
   const N=nx+1;let mn=1e9,mx=-1e9;
   for(let j=0;j<=ny;j++){const y=j*cs;for(let i=0;i<=nx;i++){const v=height(i*cs,y,t)*rise;F[j*N+i]=v;}}
@@ -349,9 +353,9 @@ function frame(now){
   // Höhenmesser
   const h=height(sx,sy,t)*rise,m=Math.round(1650+h*1150);
   const txt=String(m).replace(/\B(?=(\d{3})+(?!\d))/g,'.')+' m';
-  $alt.textContent=txt;$pin.textContent=txt;
+  if(now-lastHud>220||reduce){lastHud=now;$alt.textContent=txt;$pin.textContent=txt;
   const lat=47.2627+(.5-sy/H)*.14,lon=11.3946+(sx/W-.5)*.24;
-  $coord.textContent=lat.toFixed(4)+'° N · '+lon.toFixed(4)+'° E';
+  $coord.textContent=lat.toFixed(4)+'° N · '+lon.toFixed(4)+'° E';}
   if(user&&finePointer&&now-lastMove<5000){$pin.classList.add('on');$pin.style.transform=`translate(${sx+16}px,${sy-10}px)`}else $pin.classList.remove('on');
 
   if(!reduce){fc++;ft+=performance.now()-w0;if(fc===40){if(ft/40>12&&cs<12){cs+=1;nx=Math.ceil(W/cs)+1;ny=Math.ceil(H/cs)+1;F=new Float32Array((nx+1)*(ny+1));}fc=0;ft=0;}requestAnimationFrame(frame);}
