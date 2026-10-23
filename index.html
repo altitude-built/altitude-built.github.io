@@ -183,15 +183,18 @@ footer nav a:hover{color:var(--snow)}
 .demo-note{display:block;text-align:center;margin-top:.9rem;font-family:var(--f-mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mist);opacity:.7}
 
 /* Drift: Handy mit Widgets */
-.phone{position:relative;width:min(330px,82vw);aspect-ratio:9/18.5;border-radius:44px;padding:12px;background:linear-gradient(160deg,#2A3346,#121822 60%);
+.phone{position:relative;width:min(320px,78vw);margin-inline:auto;border-radius:44px;padding:12px;background:linear-gradient(160deg,#2A3346,#121822 60%);
   box-shadow:0 40px 80px -20px rgba(0,0,0,.7),0 0 0 1px rgba(244,236,223,.1),inset 0 0 0 1px rgba(255,255,255,.04);transform:rotateY(-10deg) rotateX(4deg);transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
 .phone:hover{transform:rotateY(-3deg) rotateX(1deg)}
-.screen{position:relative;height:100%;border-radius:33px;overflow:hidden;display:flex;flex-direction:column;gap:14px;padding:46px 12px 18px;
-  background:linear-gradient(180deg,#1B2340 0%,#3A3A63 38%,#B66B5E 72%,#E7A16A 100%)}
-.screen::before{content:"";position:absolute;left:50%;top:12px;width:82px;height:22px;border-radius:12px;background:#05070B;transform:translateX(-50%)}
-.screen svg.ridge{position:absolute;left:0;right:0;bottom:0;width:100%;height:46%}
-.screen img{position:relative;width:100%;height:auto;display:block;filter:drop-shadow(0 12px 20px rgba(0,0,0,.35))}
-.screen .time{position:relative;font-family:var(--f-mono);font-size:.62rem;color:rgba(255,255,255,.8);position:absolute;top:14px;left:26px}
+.phone{height:auto;aspect-ratio:auto}
+.screen{position:relative;aspect-ratio:600/1222;border-radius:33px;overflow:hidden;background:#0E1520}
+.screen img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .9s ease}
+.screen img.on{opacity:1}
+.shots-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:.4rem;margin-top:1.6rem;max-width:min(420px,100%)}
+.shots-nav button{font:inherit;font-family:var(--f-mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mist);background:none;border:1px solid var(--line);border-radius:99px;padding:.45rem .8rem;cursor:pointer;transition:color .3s,border-color .3s,background .3s}
+.shots-nav button:hover{color:var(--snow)}
+.shots-nav button[aria-selected="true"]{color:var(--night);background:var(--accent);border-color:var(--accent)}
+.shots-cap{margin-top:.9rem;text-align:center;color:var(--mist);font-size:.95rem;min-height:3.2em;max-width:34ch;margin-inline:auto;text-wrap:balance}
 
 /* Instinct: Tastatur-Demo */
 .kbd{--ib:#0B0F14;--ik:#161C24;--it:#E8EEF2;--ia:#5CE1E6;width:min(440px,100%);border-radius:26px;background:var(--ib);padding:16px 10px 14px;
@@ -323,15 +326,24 @@ footer nav a:hover{color:var(--snow)}
         </div>
         <div class="app-visual">
           <div>
-            <div class="phone" aria-hidden="true">
-              <div class="screen">
-                <span class="time">07:24</span>
-                <svg class="ridge" viewBox="0 0 300 200" preserveAspectRatio="none"><path d="M0 110 L40 70 L62 92 L104 38 L138 84 L160 66 L206 112 L236 80 L300 126 L300 200 L0 200Z" fill="#2B2440" opacity=".75"/><path d="M0 150 L52 112 L90 138 L130 104 L178 146 L222 118 L264 150 L300 134 L300 200 L0 200Z" fill="#191A2C"/></svg>
-                <img src="img/drift-widget.webp" alt="" width="700" height="366">
-                <img src="img/drift-uhr.webp" alt="" width="700" height="366">
+            <div class="phone">
+              <div class="screen" id="driftScreen">
+                <img src="img/drift-graph.webp" alt="Drift Weather: Graph" width="600" height="1222" class="on">
+                <img src="img/drift-pendeln.webp" alt="Drift Weather: Pendeln" width="600" height="1222" loading="lazy">
+                <img src="img/drift-trend.webp" alt="Drift Weather: Trend" width="600" height="1222" loading="lazy">
+                <img src="img/drift-profil.webp" alt="Drift Weather: Profil" width="600" height="1222" loading="lazy">
+                <img src="img/drift-widgets.webp" alt="Drift Weather: Widgets" width="600" height="1222" loading="lazy">
               </div>
             </div>
-            <span class="demo-note">Widget-Vorschau aus der App</span>
+            <div class="shots-nav" role="tablist" aria-label="Ansichten von Drift Weather">
+              <button type="button" role="tab" id="dtab-graph" aria-selected="true" data-i="0" data-cap="Der Tag als Linie. Das Band zeigt die beste Zeit fürs Radfahren.">Graph</button>
+              <button type="button" role="tab" id="dtab-pendeln" aria-selected="false" data-i="1" data-cap="Feste Zeiten im Blick: hin passt, zurück lieber nicht.">Pendeln</button>
+              <button type="button" role="tab" id="dtab-trend" aria-selected="false" data-i="2" data-cap="Die Woche als Stunden-Streifen, mit bester Zeit je Profil.">Trend</button>
+              <button type="button" role="tab" id="dtab-profil" aria-selected="false" data-i="3" data-cap="Eigene Grenzen für jede Aktivität.">Profil</button>
+              <button type="button" role="tab" id="dtab-widgets" aria-selected="false" data-i="4" data-cap="Drift Uhr und Wetter-Widget mit Regen-Radar.">Widgets</button>
+            </div>
+            <p class="shots-cap" id="driftCap" aria-live="polite">Der Tag als Linie. Das Band zeigt die beste Zeit fürs Radfahren.</p>
+            <span class="demo-note">Echte Screenshots aus der Testversion</span>
           </div>
         </div>
       </article>
@@ -502,6 +514,18 @@ addEventListener('pointerdown',e=>point(e.clientX,e.clientY),{passive:true});
 const tp=e=>{const q=e.touches[0];if(q)point(q.clientX,q.clientY)};addEventListener('touchstart',tp,{passive:true});addEventListener('touchmove',tp,{passive:true});
 document.addEventListener('mouseleave',()=>{lastMove=-1e9});
 requestAnimationFrame(frame);
+
+/* ---------- Drift-Screenshots ---------- */
+(function(){
+  const scr=document.getElementById('driftScreen');if(!scr)return;
+  const imgs=[...scr.querySelectorAll('img')],tabs=[...document.querySelectorAll('.shots-nav button')],cap=document.getElementById('driftCap');
+  let cur=0,auto=!matchMedia('(prefers-reduced-motion: reduce)').matches,timer=null,vis=false;
+  function show(i){cur=(i+imgs.length)%imgs.length;imgs.forEach((im,k)=>im.classList.toggle('on',k===cur));
+    tabs.forEach((b,k)=>b.setAttribute('aria-selected',k===cur?'true':'false'));cap.textContent=tabs[cur].dataset.cap;}
+  function plan(){clearInterval(timer);if(auto&&vis)timer=setInterval(()=>show(cur+1),4800);}
+  tabs.forEach(b=>b.addEventListener('click',()=>{auto=false;plan();show(+b.dataset.i)}));
+  new IntersectionObserver(es=>{vis=es[0].isIntersecting;plan()},{threshold:.4}).observe(scr);
+})();
 
 /* ---------- Instinct-Demo ---------- */
 (function(){
