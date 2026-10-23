@@ -65,7 +65,7 @@ body.scrolled .status{background:none;border-color:transparent}
 .brand-mini svg{width:22px;height:auto}
 .brand-mini span{font-family:var(--f-display);font-size:.62rem;letter-spacing:.3em}
 body.scrolled .brand-mini{opacity:1}
-.status{display:flex;align-items:center;gap:.6rem;padding:.45rem .85rem;border:1px solid var(--line);border-radius:99px;background:rgba(14,21,32,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.status{text-decoration:none;color:var(--mist);transition:color .3s;display:flex;align-items:center;gap:.6rem;padding:.45rem .85rem;border:1px solid var(--line);border-radius:99px;background:rgba(14,21,32,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .status i{width:6px;height:6px;border-radius:50%;background:var(--ember);box-shadow:0 0 0 0 rgba(233,164,106,.6);animation:pulse 3.6s infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(233,164,106,.55)}70%{box-shadow:0 0 0 9px rgba(233,164,106,0)}100%{box-shadow:0 0 0 0 rgba(233,164,106,0)}}
 
@@ -155,11 +155,78 @@ footer nav{display:flex;gap:1.8rem}
 footer nav a{text-decoration:none;transition:color .3s}
 footer nav a:hover{color:var(--snow)}
 
+
+/* ---------- Apps ---------- */
+.apps{padding-block:0 clamp(100px,13vw,170px)}
+.apps-head{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(32px,6vw,96px);align-items:end;margin-bottom:clamp(48px,7vw,90px)}
+.apps-head h2{margin-top:1.4rem;font-weight:300;font-size:clamp(2.1rem,4.6vw,3.6rem);line-height:1.06;letter-spacing:-.03em;text-wrap:balance}
+.apps-head p{color:var(--mist);max-width:40ch}
+.app{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(36px,6vw,90px);align-items:center;padding-block:clamp(44px,6vw,70px);border-top:1px solid var(--line);position:relative}
+.app::before{content:"";position:absolute;left:0;top:-1px;width:44px;height:1px;background:var(--accent,var(--ember))}
+.app-instinct{--accent:#5CE1E6}
+.app-drift{--accent:#F2C46B}
+.app-copy{min-width:0}
+.app-id{display:flex;align-items:center;gap:1.1rem}
+.app-id img{width:64px;height:64px;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.35),0 0 0 1px rgba(244,236,223,.08)}
+.app-id h3{font-family:var(--f-display);font-weight:400;font-size:clamp(1.05rem,1.8vw,1.35rem);letter-spacing:.12em;text-transform:uppercase;line-height:1.3}
+.chip{display:inline-flex;align-items:center;gap:.5rem;margin-top:.45rem;font-family:var(--f-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mist);border:1px solid var(--line);border-radius:99px;padding:.25rem .65rem}
+.chip::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--accent)}
+.app-claim{margin-top:1.8rem;font-size:clamp(1.6rem,3vw,2.3rem);line-height:1.15;letter-spacing:-.02em;font-weight:300;color:var(--snow);text-wrap:balance}
+.app-copy>p:not(.app-claim){margin-top:1rem;color:var(--mist);max-width:46ch}
+.facts{list-style:none;margin-top:1.6rem;display:grid;gap:.55rem}
+.facts li{display:flex;gap:.8rem;align-items:baseline;color:var(--snow);font-weight:300}
+.facts li::before{content:"";flex:none;width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-bottom:7px solid var(--accent);transform:translateY(-1px)}
+.app-links{margin-top:2rem;display:flex;gap:1.6rem;flex-wrap:wrap;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase}
+.app-links a{color:var(--mist);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:.3rem;transition:color .3s,border-color .3s}
+.app-links a:hover{color:var(--snow);border-color:var(--accent)}
+.app-visual{min-width:0;display:flex;justify-content:center;perspective:1400px}
+.demo-note{display:block;text-align:center;margin-top:.9rem;font-family:var(--f-mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mist);opacity:.7}
+
+/* Drift: Handy mit Widgets */
+.phone{position:relative;width:min(330px,82vw);aspect-ratio:9/18.5;border-radius:44px;padding:12px;background:linear-gradient(160deg,#2A3346,#121822 60%);
+  box-shadow:0 40px 80px -20px rgba(0,0,0,.7),0 0 0 1px rgba(244,236,223,.1),inset 0 0 0 1px rgba(255,255,255,.04);transform:rotateY(-10deg) rotateX(4deg);transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.phone:hover{transform:rotateY(-3deg) rotateX(1deg)}
+.screen{position:relative;height:100%;border-radius:33px;overflow:hidden;display:flex;flex-direction:column;gap:14px;padding:46px 12px 18px;
+  background:linear-gradient(180deg,#1B2340 0%,#3A3A63 38%,#B66B5E 72%,#E7A16A 100%)}
+.screen::before{content:"";position:absolute;left:50%;top:12px;width:82px;height:22px;border-radius:12px;background:#05070B;transform:translateX(-50%)}
+.screen svg.ridge{position:absolute;left:0;right:0;bottom:0;width:100%;height:46%}
+.screen img{position:relative;width:100%;height:auto;display:block;filter:drop-shadow(0 12px 20px rgba(0,0,0,.35))}
+.screen .time{position:relative;font-family:var(--f-mono);font-size:.62rem;color:rgba(255,255,255,.8);position:absolute;top:14px;left:26px}
+
+/* Instinct: Tastatur-Demo */
+.kbd{--ib:#0B0F14;--ik:#161C24;--it:#E8EEF2;--ia:#5CE1E6;width:min(440px,100%);border-radius:26px;background:var(--ib);padding:16px 10px 14px;
+  box-shadow:0 40px 80px -20px rgba(0,0,0,.7),0 0 0 1px rgba(92,225,230,.14);font-family:var(--f-body)}
+.kbd-field{margin:0 6px 12px;min-height:3.2em;padding:.8rem 1rem;border-radius:14px;background:#121821;color:var(--it);font-size:1.05rem;line-height:1.4;font-weight:400}
+.kbd-field .raw{color:#7F8C99;text-decoration:underline;text-decoration-color:rgba(92,225,230,.5);text-underline-offset:4px}
+.kbd-field .fix{color:var(--ia);transition:color 1.2s}
+.kbd-field .caret{display:inline-block;width:2px;height:1.1em;background:var(--ia);vertical-align:-.15em;margin-left:1px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.kbd-bar{display:grid;grid-template-columns:1fr 1.3fr 1fr;align-items:center;height:2.4rem;margin:0 6px 8px;font-size:.95rem;color:#9AA7B4;text-align:center}
+.kbd-bar span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.kbd-bar .best{color:var(--it);font-weight:500}
+.kbd-bar span+span{border-left:1px solid rgba(255,255,255,.07)}
+.kbd-keys{position:relative;display:grid;gap:7px;user-select:none}
+.kbd-row{display:grid;gap:5px}
+.kbd-row:nth-child(1){grid-template-columns:repeat(10,1fr)}
+.kbd-row:nth-child(2){grid-template-columns:repeat(9,1fr);padding-inline:4.6%}
+.kbd-row:nth-child(3){grid-template-columns:1.5fr repeat(7,1fr) 1.5fr}
+.kbd-row:nth-child(4){grid-template-columns:1.5fr 1fr 5fr 1fr 1.5fr}
+.key{height:clamp(36px,9vw,44px);border-radius:8px;background:var(--ik);color:var(--it);display:grid;place-items:center;font-size:clamp(.82rem,2.2vw,1rem);text-transform:lowercase}
+.key.fn{background:#10151C;color:#7F8C99;font-size:.75rem}
+.key.lit{background:#22303A}
+.tap{position:absolute;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:var(--ia);box-shadow:0 0 0 4px rgba(92,225,230,.18);pointer-events:none;animation:tap 1.6s ease-out forwards}
+@keyframes tap{0%{transform:scale(1.6);opacity:1}25%{transform:scale(1)}100%{transform:scale(.7);opacity:0}}
 @media (max-width:820px){
   .ethos,.contact{grid-template-columns:minmax(0,1fr)}
+  .apps-head,.app{grid-template-columns:minmax(0,1fr)}
+  .app-instinct .app-visual{order:2}
+  .phone{transform:none}
+
   .principles{grid-template-columns:minmax(0,1fr);gap:40px}
 }
 @media (max-width:560px){
+  .brand-mini span{display:none}
+  .status{white-space:nowrap}
   .hud{grid-template-columns:1fr 1fr}
   .hud .hint{display:none}
   .status b{display:none}
@@ -179,7 +246,7 @@ footer nav a:hover{color:var(--snow)}
     <svg viewBox="84 110 348 306" aria-hidden="true"><path fill="#F4ECDF" d="{{MARK}}"/></svg>
     <span>Altitude Built</span>
   </a>
-  <div class="status"><i></i>Erste Apps im Test</div>
+  <a class="status" href="#apps"><i></i>Erste Apps im Test</a>
 </header>
 
 <div class="pin" id="pin">2.400 m</div>
@@ -226,6 +293,74 @@ footer nav a:hover{color:var(--snow)}
       <article class="pr">
         <h3>Nur das Nötige</h3>
         <p>Eine App fragt nur nach den Berechtigungen, die sie für ihre Funktionen braucht.</p>
+      </article>
+    </section>
+
+
+    <section class="wrap apps" id="apps" aria-label="Apps">
+      <div class="apps-head">
+        <div>
+          <div class="eyebrow">Apps</div>
+          <h2>Zwei Apps, gerade im internen Test.</h2>
+        </div>
+        <p>Beide laufen schon im Alltag und werden mit Testern Runde für Runde verfeinert. Öffentlich im Play Store sind sie noch nicht.</p>
+      </div>
+
+      <article class="app app-drift" id="drift">
+        <div class="app-copy">
+          <div class="app-id">
+            <img src="img/drift-icon.png" alt="" width="64" height="64">
+            <div><h3>Drift Weather</h3><span class="chip">Interner Test</span></div>
+          </div>
+          <p class="app-claim">Das Wetter als Linie, nicht als Liste.</p>
+          <p>Temperatur, Regen, Wolken und Wind als ruhige Linien in einem Graph. Profile wie „Rennrad“ oder „Pendeln“ finden für jeden Tag die beste Zeit und sagen ehrlich, wenn es heute nichts wird.</p>
+          <ul class="facts">
+            <li>Mehrere Wettermodelle im Vergleich, Uneinigkeit wird offen gezeigt</li>
+            <li>Widgets in allen Größen und die Drift Uhr</li>
+            <li>Kein Konto, kein Tracking</li>
+          </ul>
+          <div class="app-links"><a href="drift/datenschutz/">Datenschutz</a></div>
+        </div>
+        <div class="app-visual">
+          <div>
+            <div class="phone" aria-hidden="true">
+              <div class="screen">
+                <span class="time">07:24</span>
+                <svg class="ridge" viewBox="0 0 300 200" preserveAspectRatio="none"><path d="M0 110 L40 70 L62 92 L104 38 L138 84 L160 66 L206 112 L236 80 L300 126 L300 200 L0 200Z" fill="#2B2440" opacity=".75"/><path d="M0 150 L52 112 L90 138 L130 104 L178 146 L222 118 L264 150 L300 134 L300 200 L0 200Z" fill="#191A2C"/></svg>
+                <img src="img/drift-widget.webp" alt="" width="700" height="366">
+                <img src="img/drift-uhr.webp" alt="" width="700" height="366">
+              </div>
+            </div>
+            <span class="demo-note">Widget-Vorschau aus der App</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="app app-instinct" id="instinct">
+        <div class="app-visual">
+          <div style="width:100%;display:flex;flex-direction:column;align-items:center">
+            <div class="kbd" id="kbd" aria-hidden="true">
+              <div class="kbd-field" id="kbdField"><span class="caret"></span></div>
+              <div class="kbd-bar" id="kbdBar"><span></span><span class="best"></span><span></span></div>
+              <div class="kbd-keys" id="kbdKeys"></div>
+            </div>
+            <span class="demo-note">Animierte Darstellung</span>
+          </div>
+        </div>
+        <div class="app-copy">
+          <div class="app-id">
+            <img src="img/instinct-icon.png" alt="" width="64" height="64">
+            <div><h3>Instinct</h3><span class="chip">Interner Test</span></div>
+          </div>
+          <p class="app-claim">Tippen nach Gefühl.</p>
+          <p>Eine Tastatur, die versteht, was du meinst, auch wenn du danebentippst. Jeder Tipp zählt als Punkt auf dem Bildschirm, nicht als Buchstabe. Daraus und aus dem Satzzusammenhang ergibt sich das richtige Wort.</p>
+          <ul class="facts">
+            <li>Deutsch, Englisch und Tiroler Dialekt, gemischt ohne Umschalten</li>
+            <li>Lernt deine Wörter und deine Art zu tippen</li>
+            <li>Kein Internet-Zugriff, alles bleibt am Handy</li>
+          </ul>
+          <div class="app-links"><a href="instinct/datenschutz/">Datenschutz</a></div>
+        </div>
       </article>
     </section>
 
@@ -367,6 +502,41 @@ addEventListener('pointerdown',e=>point(e.clientX,e.clientY),{passive:true});
 const tp=e=>{const q=e.touches[0];if(q)point(q.clientX,q.clientY)};addEventListener('touchstart',tp,{passive:true});addEventListener('touchmove',tp,{passive:true});
 document.addEventListener('mouseleave',()=>{lastMove=-1e9});
 requestAnimationFrame(frame);
+
+/* ---------- Instinct-Demo ---------- */
+(function(){
+  const keys=document.getElementById('kbdKeys');if(!keys)return;
+  const rows=['qwertzuiop','asdfghjkl','⇧yxcvbnm⌫',['?123',',','leer','.','⏎']];
+  rows.forEach(r=>{const row=document.createElement('div');row.className='kbd-row';
+    (Array.isArray(r)?r:[...r]).forEach(c=>{const k=document.createElement('div');k.className='key';
+      if(c==='leer'){k.textContent='';k.dataset.k=' ';}else{k.textContent=c;k.dataset.k=c;}
+      if(['⇧','⌫','?123','⏎',',','.'].includes(c))k.classList.add('fn');row.appendChild(k);});keys.appendChild(row);});
+  const field=document.getElementById('kbdField'),bar=document.getElementById('kbdBar').children;
+  // [getippt, Ergebnis, Alternativen]
+  const words=[['bon','Bin',['bin','Bon']],['gleuch','gleich',['gleiche','Gleich']],['wjeder','wieder',['wider','Wieder']],['mit','mit',['mir','mich']],['dem','dem',['den','der']],['rsd','Rad',['Rat','das']],['dahwim','daheim',['dahin','Daheim']]];
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const keyEl=c=>keys.querySelector(`[data-k="${c}"]`);
+  let done=[],timers=[];
+  const T=(f,ms)=>timers.push(setTimeout(f,ms));
+  function render(raw){field.innerHTML=done.map(w=>`<span class="${w.f?'fix':''}">${w.w}</span>`).join(' ')+(done.length?' ':'')+(raw?`<span class="raw">${raw}</span>`:'')+'<span class="caret"></span>';}
+  function tap(c){const k=keyEl(c);if(!k)return;const kr=k.getBoundingClientRect(),r=keys.getBoundingClientRect();
+    const d=document.createElement('i');d.className='tap';
+    d.style.left=(kr.left-r.left+kr.width*(.5+(Math.random()-.5)*.55))+'px';d.style.top=(kr.top-r.top+kr.height*(.5+(Math.random()-.5)*.5))+'px';
+    keys.appendChild(d);k.classList.add('lit');setTimeout(()=>{k.classList.remove('lit')},140);setTimeout(()=>d.remove(),1700);}
+  function bars(a,b,c){bar[0].textContent=a;bar[1].textContent=b;bar[2].textContent=c;}
+  function run(){
+    timers.forEach(clearTimeout);timers=[];done=[];render('');bars('','','');let t=600;
+    words.forEach(([raw,ok,alt])=>{
+      [...raw].forEach((c,i)=>{T(()=>{tap(c);render(raw.slice(0,i+1));if(i>=1)bars(alt[0],ok,alt[1]);},t);t+=230;});
+      t+=260;T(()=>{tap(' ');done.forEach(w=>w.f=false);done.push({w:ok,f:ok.toLowerCase()!==raw});render('');},t);t+=520;
+    });
+    T(()=>{done.forEach(w=>w.f=false);render('');bars('','','');},t+300);
+    T(run,t+3200);
+  }
+  if(reduce){done=words.map(w=>({w:w[1],f:false}));render('');return;}
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting&&!timers.length)run();else if(!e.isIntersecting){timers.forEach(clearTimeout);timers=[];}})},{threshold:.35});
+  io.observe(document.getElementById('kbd'));
+})();
 
 /* ---------- Kleinigkeiten ---------- */
 const onScroll=()=>document.body.classList.toggle('scrolled',scrollY>innerHeight*.6);
