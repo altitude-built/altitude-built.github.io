@@ -28,7 +28,7 @@ def page(title, desc, body, up='../../'):
 {body}
 </main>
 <footer><div class="wrap">
-  <span>© 2026 Altitude Built · Alpen</span>
+  <span>© 2026 Altitude Built · Tirol</span>
   <nav aria-label="Rechtliches"><a href="{up}impressum.html">Impressum</a><a href="{up}datenschutz.html">Datenschutz Website</a></nav>
 </div></footer>
 </body>

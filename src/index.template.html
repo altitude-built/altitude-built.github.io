@@ -157,7 +157,9 @@ footer nav a:hover{color:var(--snow)}
 
 
 /* ---------- Apps ---------- */
-.apps{padding-block:0 clamp(100px,13vw,170px)}
+.apps{padding-block:0 clamp(100px,13vw,170px);scroll-margin-top:90px}
+.app{scroll-margin-top:70px}
+.apps-eyebrow{margin-bottom:clamp(28px,4vw,44px)}
 .apps-head{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(32px,6vw,96px);align-items:end;margin-bottom:clamp(48px,7vw,90px)}
 .apps-head h2{margin-top:1.4rem;font-weight:300;font-size:clamp(2.1rem,4.6vw,3.6rem);line-height:1.06;letter-spacing:-.03em;text-wrap:balance}
 .apps-head p{color:var(--mist);max-width:40ch}
@@ -279,35 +281,29 @@ footer nav a:hover{color:var(--snow)}
         <h2>Apps, die man<br><em>gern benutzt.</em></h2>
       </div>
       <div>
-        <p>Altitude Built ist ein kleines Projekt aus den Alpen. Die Apps entstehen aus Dingen, die mich im Alltag selbst stören: beim Radfahren, beim Pendeln oder beim Tippen am Handy.</p>
-        <p>Lieber weniger Funktionen, die dafür gut durchdacht und angenehm zu bedienen sind.</p>
+        <p>Hinter Altitude Built stecke ich, Chris. Ich baue Apps für Dinge, die mich im Alltag selbst nerven. Zum Beispiel, ob ich heute trocken mit dem Rad zur Arbeit komme. Oder dass das Handy beim Tippen ständig falsche Wörter einsetzt.</p>
+        <p>Mir ist wichtig, dass eine App aufgeräumt bleibt und man sie ohne Anleitung versteht.</p>
       </div>
     </section>
 
     <section class="wrap principles" aria-label="Grundsätze">
       <article class="pr">
         <h3>Bleibt bei dir</h3>
-        <p>Deine Einstellungen und Inhalte werden auf deinem Gerät gespeichert. Altitude Built betreibt keine Cloud, in der sie landen.</p>
+        <p>Was du in den Apps einstellst und eingibst, wird auf deinem Handy gespeichert. Es gibt keine Cloud und keinen Server von mir, auf dem es landet.</p>
       </article>
       <article class="pr">
         <h3>Kein Konto</h3>
-        <p>Installieren und loslegen. Keine Registrierung, kein Passwort, keine E-Mail-Adresse.</p>
+        <p>Installieren und loslegen. Du musst dich nirgends registrieren.</p>
       </article>
       <article class="pr">
-        <h3>Nur das Nötige</h3>
-        <p>Eine App fragt nur nach den Berechtigungen, die sie für ihre Funktionen braucht.</p>
+        <h3>Wenige Berechtigungen</h3>
+        <p>Die Apps fragen nur nach dem, was sie wirklich brauchen. Drift will den ungefähren Standort, Instinct nicht einmal Internet.</p>
       </article>
     </section>
 
 
     <section class="wrap apps" id="apps" aria-label="Apps">
-      <div class="apps-head">
-        <div>
-          <div class="eyebrow">Apps</div>
-          <h2>Zwei Apps, gerade im internen Test.</h2>
-        </div>
-        <p>Beide laufen schon im Alltag und werden mit Testern Runde für Runde verfeinert. Öffentlich im Play Store sind sie noch nicht.</p>
-      </div>
+      <div class="eyebrow apps-eyebrow">Apps</div>
 
       <article class="app app-drift" id="drift">
         <div class="app-copy">
@@ -316,10 +312,10 @@ footer nav a:hover{color:var(--snow)}
             <div><h3>Drift Weather</h3><span class="chip">Interner Test</span></div>
           </div>
           <p class="app-claim">Das Wetter als Linie, nicht als Liste.</p>
-          <p>Drift zeigt den ganzen Tag in einem einzigen Graph. Temperatur, Regen, Wind, Wolken, Luftdruck, Pollen und mehr liegen als Ebenen übereinander, jede lässt sich ein- und ausblenden. Profile wie „Radfahren“ oder „Pendeln“ finden für jeden Tag die beste Zeit und sagen ehrlich, wenn es heute nichts wird.</p>
+          <p>Statt Symbolen und Zahlenreihen zeigt Drift den Tag als Graph. Temperatur, Regen, Wind, Wolken, Pollen und weitere Werte liegen übereinander, und du blendest ein, was dich interessiert. Für Radfahren, Laufen oder den Weg zur Arbeit legst du Profile an, und Drift sucht dir die passende Zeit heraus.</p>
           <ul class="facts">
-            <li>Mehrere Wettermodelle im Vergleich, Uneinigkeit wird offen gezeigt</li>
-            <li>Widgets in allen Größen und die Drift Uhr</li>
+            <li>Vergleicht mehrere Wettermodelle und zeigt, wenn sie sich beim Regen nicht einig sind</li>
+            <li>Widgets für den Startbildschirm, auch als große Uhr</li>
             <li>Kein Konto, kein Tracking</li>
           </ul>
           <div class="app-links"><a href="drift/datenschutz/">Datenschutz</a></div>
@@ -343,7 +339,7 @@ footer nav a:hover{color:var(--snow)}
               <button type="button" role="tab" id="dtab-widgets" aria-selected="false" data-i="4" data-cap="Drift Uhr und Wetter-Widget mit Regen-Radar.">Widgets</button>
             </div>
             <p class="shots-cap" id="driftCap" aria-live="polite">Der Tag als Linie. Das Band zeigt die beste Zeit fürs Radfahren.</p>
-            <span class="demo-note">Echte Screenshots aus der Testversion</span>
+            <span class="demo-note">Screenshots aus der Testversion</span>
           </div>
         </div>
       </article>
@@ -365,10 +361,10 @@ footer nav a:hover{color:var(--snow)}
             <div><h3>Instinct</h3><span class="chip">Interner Test</span></div>
           </div>
           <p class="app-claim">Tippen nach Gefühl.</p>
-          <p>Eine Tastatur, die versteht, was du meinst, auch wenn du danebentippst. Jeder Tipp zählt als Punkt auf dem Bildschirm, nicht als Buchstabe. Daraus und aus dem Satzzusammenhang ergibt sich das richtige Wort.</p>
+          <p>Eine Tastatur für alle, die am Handy schnell und ungenau tippen. Instinct schaut nicht nur, welche Taste du getroffen hast, sondern wo genau dein Finger war und was davor im Satz steht. So wird aus „wjeder“ trotzdem „wieder“.</p>
           <ul class="facts">
-            <li>Deutsch, Englisch und Tiroler Dialekt, gemischt ohne Umschalten</li>
-            <li>Lernt deine Wörter und deine Art zu tippen</li>
+            <li>Lernt neue Wörter und deine Art zu tippen</li>
+            <li>Wischgesten für Leerzeichen, Löschen und Cursor</li>
             <li>Kein Internet-Zugriff, alles bleibt am Handy</li>
           </ul>
           <div class="app-links"><a href="instinct/datenschutz/">Datenschutz</a></div>
@@ -379,8 +375,8 @@ footer nav a:hover{color:var(--snow)}
     <section class="wrap contact">
       <div>
         <div class="eyebrow">Kontakt</div>
-        <h2>Die ersten Apps sind gerade im Test.</h2>
-        <p>Fragen, Ideen oder Feedback? Schreib einfach.</p>
+        <h2>Fragen oder Ideen?</h2>
+        <p>Schreib mir einfach. Über Rückmeldungen zu den Apps freue ich mich besonders.</p>
       </div>
       <div class="mail">
         <a href="mailto:altitude.built@gmail.com" id="mail">altitude.built@gmail.com</a>
@@ -394,7 +390,7 @@ footer nav a:hover{color:var(--snow)}
   <div class="wrap">
     <div class="fb">
       <svg viewBox="84 110 348 306" aria-hidden="true"><path fill="#E9A46A" d="{{MARK}}"/></svg>
-      <span>© 2026 Altitude Built · Alpen</span>
+      <span>© 2026 Altitude Built · Tirol</span>
     </div>
     <nav aria-label="Rechtliches">
       <a href="impressum.html">Impressum</a>
